@@ -24,14 +24,13 @@
         <ImageView
             android:id="@+id/imageAB"
             android:layout_width="120dp"
-            android:layout_height="100dp"
-            android:background="@drawable/img_bg"
+            android:layout_height="0dp"
             android:padding="2dp"
             android:scaleType="fitXY"
             android:src="@color/primaryColor"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/descriptionAB"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/titleAB" />
 
         <TextView
             android:id="@+id/titleAB"

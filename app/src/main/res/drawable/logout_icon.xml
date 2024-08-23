@@ -2,7 +2,7 @@
     android:width="20sp"
     android:height="20sp"
     android:autoMirrored="true"
-    android:tint="@color/white"
+    android:tint="@color/black"
     android:viewportWidth="24"
     android:viewportHeight="24">
 
