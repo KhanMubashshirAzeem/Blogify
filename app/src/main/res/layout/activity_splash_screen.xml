@@ -5,11 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="24sp"
+    android:padding="48dp"
     android:background="@color/white"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".SplashScreenActivity">
+    tools:context=".activity.SplashScreenActivity">
 
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:padding="8sp"
         android:layout_gravity="center_horizontal"
-        android:text="Blogify"
+        android:text="BLOGIFY"
         android:textColor="@color/primaryColor"
         android:textSize="32sp"
         android:textStyle="bold" />

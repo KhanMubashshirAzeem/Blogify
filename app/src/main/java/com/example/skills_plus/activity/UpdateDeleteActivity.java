@@ -19,7 +19,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.bumptech.glide.Glide;
 import com.example.skills_plus.R;
 import com.example.skills_plus.databinding.ActivityUpdateDeleteBinding;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -31,14 +30,15 @@ import java.util.Locale;
 
 public class UpdateDeleteActivity extends AppCompatActivity {
 
-    private static final int PICK_IMAGE_REQUEST = 1;
-    private static final String TAG = "UpdateDeleteActivity";
+    private static final int PICK_IMAGE_REQUEST = 1;  // Request code for image picker
+    private static final String TAG = "UpdateDeleteActivity"; // Tag for debugging
 
     ActivityUpdateDeleteBinding binding;
-    private DatabaseReference blogRef;
-    private String blogId;
-    private Uri imageUri;
-    private String previousImageUrl;
+
+    private DatabaseReference blogRef;        // Reference to the blog node in Firebase
+    private String blogId;                    // Blog ID passed from previous screen
+    private Uri imageUri;                     // New image URI if user selects one
+    private String previousImageUrl;          // Existing image URL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class UpdateDeleteActivity extends AppCompatActivity {
         binding = ActivityUpdateDeleteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Handle edge-to-edge layout
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -59,9 +60,8 @@ public class UpdateDeleteActivity extends AppCompatActivity {
         previousImageUrl = getIntent().getStringExtra("image");
         String timestamp = getIntent().getStringExtra("timestamp");
         blogId = getIntent().getStringExtra("blogId");
-        Log.d(TAG, "Received blogId: " + blogId); // Debug log
 
-        // Check if blogId is null
+        // If blogId is missing, stop and exit activity
         if (blogId == null) {
             Log.e(TAG, "blogId is null. Cannot proceed.");
             Toast.makeText(this, "Blog ID is missing. Cannot proceed.", Toast.LENGTH_SHORT).show();
@@ -69,69 +69,55 @@ public class UpdateDeleteActivity extends AppCompatActivity {
             return;
         }
 
-        Log.d(TAG, "blogId: " + blogId);
-
-        // Set blog details in UI
+        // Populate UI with blog data
         binding.titleUpdate.setText(title);
         binding.descriptionUpdate.setText(description);
         binding.timeUpdate.setText(timestamp);
         Glide.with(this).load(previousImageUrl).into(binding.imageUpdate);
 
+        // Set reference to this blog in Firebase
         blogRef = FirebaseDatabase.getInstance().getReference().child("blogs").child(blogId);
 
-        binding.updateBlog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateBlog();
-            }
-        });
-
-        binding.deleteBlog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteBlog();
-            }
-        });
-
-        binding.imageUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openImagePicker();
-            }
-        });
+        // Set click listeners
+        binding.updateBlog.setOnClickListener(v -> updateBlog());
+        binding.deleteBlog.setOnClickListener(v -> deleteBlog());
+        binding.imageUpdate.setOnClickListener(v -> openImagePicker());
     }
 
-
-
+    // Open image picker when user clicks on image
     private void openImagePicker() {
         Intent intent = new Intent();
-        intent.setType("image/*");
+        intent.setType("image/*"); // Only images
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
+    // Handle selected image result
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
-            Glide.with(this).load(imageUri).into(binding.imageUpdate);
+            Glide.with(this).load(imageUri).into(binding.imageUpdate); // Preview selected image
         }
     }
 
+    // Update blog data
     private void updateBlog() {
         String updatedTitle = binding.titleUpdate.getText().toString().trim();
         String updatedDescription = binding.descriptionUpdate.getText().toString().trim();
 
+        // Validate input
         if (TextUtils.isEmpty(updatedTitle) || TextUtils.isEmpty(updatedDescription)) {
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (imageUri != null) {
-            // Upload new image to Firebase Storage
+            // If user selected a new image, upload it
             StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("images/" + blogId);
             storageRef.putFile(imageUri).addOnSuccessListener(taskSnapshot -> {
+                // Get URL of new image
                 storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                     String newImageUrl = uri.toString();
                     updateBlogInDatabase(updatedTitle, updatedDescription, newImageUrl);
@@ -142,30 +128,29 @@ public class UpdateDeleteActivity extends AppCompatActivity {
                 Toast.makeText(this, "Image upload failed", Toast.LENGTH_SHORT).show();
             });
         } else {
-            // Use the previous image URL if no new image is selected
+            // If no new image selected, use previous image
             updateBlogInDatabase(updatedTitle, updatedDescription, previousImageUrl);
         }
     }
 
+    // Function to update data in Firebase Realtime Database
     private void updateBlogInDatabase(String title, String description, String imageUrl) {
-        // Update blog in Firebase
         blogRef.child("title").setValue(title);
         blogRef.child("description").setValue(description);
         blogRef.child("imageUrl").setValue(imageUrl);
 
-        // Update the timestamp
+        // Update current timestamp
         String updatedTimestamp = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         blogRef.child("timestamp").setValue(updatedTimestamp);
 
         Toast.makeText(this, "Blog updated successfully", Toast.LENGTH_SHORT).show();
-        finish(); // Close the activity after updating
+        finish(); // Close activity after update
     }
 
+    // Function to delete blog from Firebase
     private void deleteBlog() {
-        // Delete blog from Firebase
-        blogRef.removeValue();
-
+        blogRef.removeValue(); // Remove entire blog node
         Toast.makeText(this, "Blog deleted successfully", Toast.LENGTH_SHORT).show();
-        finish(); // Close the activity after deletion
+        finish(); // Close activity
     }
 }

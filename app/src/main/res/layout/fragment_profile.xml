@@ -26,7 +26,7 @@
             android:padding="8dp"
             android:onClick="onClickForBackPress"
             android:src="@drawable/back_icon"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
 
         <TextView
             android:id="@+id/textView3"
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Profile"
-            android:textColor="@color/white"
+            android:textColor="@color/offBlack"
             android:textSize="28sp"
             android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
             android:layout_height="42dp"
             android:padding="8dp"
             android:src="@drawable/logout_icon"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -95,7 +95,7 @@
             android:padding="4dp"
             android:text="@string/email"
             android:textColor="@color/black"
-            android:textSize="21sp"
+            android:textSize="14dp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,8 +110,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/saveBlogsRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

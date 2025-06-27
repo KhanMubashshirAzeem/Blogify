@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="160dp"
         android:background="@color/white"
         android:elevation="12dp"
         android:padding="8dp">
@@ -73,6 +73,7 @@
             android:id="@+id/userPictureAB"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:layout_marginStart="8dp"
             android:src="@drawable/person_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

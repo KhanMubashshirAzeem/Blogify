@@ -49,6 +49,7 @@ public class CommunityFragment extends Fragment {
     }
 
     private void initializeRecyclerView() {
+        binding.rvAllBlogs.hasFixedSize();
         adapter = new CommunityBlogAdapter(getContext(), filteredBlogsList); // Use filtered list for displaying blogs
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.rvAllBlogs.setLayoutManager(layoutManager);
