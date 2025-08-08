@@ -4,7 +4,7 @@
     android:id="@+id/nestedContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.WriteFragment">
+    tools:context=".view.fragment.WriteFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12sp"
             android:backgroundTint="@color/primaryColor"
+            app:tint="@color/white"
             android:contentDescription="TODO"
             android:padding="4dp"
             android:src="@drawable/add_icon"

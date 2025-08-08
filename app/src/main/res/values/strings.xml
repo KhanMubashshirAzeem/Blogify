@@ -106,5 +106,7 @@
     <string name="action_settings">Settings</string>
     <string name="email">khanmubashsir08@gmail.com</string>
     <string name="name">Mubashshir Khan</string>
+    <string name="loading">Loading...</string>
+    <string name="todo">TODO</string>
 
 </resources>

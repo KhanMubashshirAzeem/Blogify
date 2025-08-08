@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context=".fragment.CommunityFragment">
+    tools:context=".view.fragment.CommunityFragment">
 
     <!-- Search View -->
     <androidx.appcompat.widget.SearchView
@@ -34,17 +34,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- ProgressBar -->
+    <!-- ProgressBar (old loader - optional) -->
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:layout_width="124dp"
-        android:layout_height="124dp"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
         android:layout_margin="16dp"
-        android:indeterminateTint="@color/primaryDarkColor"
+        android:indeterminateTint="@color/primaryColor"
+        android:indeterminateDrawable="@drawable/circle_loader"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
