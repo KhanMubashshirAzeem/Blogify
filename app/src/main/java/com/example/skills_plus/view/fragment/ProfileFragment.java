@@ -23,7 +23,8 @@ import com.example.skills_plus.viewmodel.AuthViewModel;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 
-public class ProfileFragment extends Fragment {
+// Implement the adapter's click listener interface
+public class ProfileFragment extends Fragment implements CommunityBlogAdapter.OnBookmarkClickListener {
 
     private static final int SELECT_PICTURE = 200;
     private FragmentProfileBinding binding;
@@ -52,9 +53,8 @@ public class ProfileFragment extends Fragment {
     }
 
     private void setupSavedBlogsRecyclerView() {
-        // We can reuse the CommunityBlogAdapter. Pass null for the click listener
-        // as we don't need bookmarking functionality on this screen's list.
-        savedBlogsAdapter = new CommunityBlogAdapter(getContext(), new ArrayList<>(), null);
+        // Pass 'this' as the listener so the fragment can receive click events
+        savedBlogsAdapter = new CommunityBlogAdapter(getContext(), new ArrayList<>(), this);
         binding.saveBlogsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.saveBlogsRecyclerView.setAdapter(savedBlogsAdapter);
     }
@@ -72,6 +72,8 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        // Observe the bookmarked blogs. LiveData will automatically update the list
+        // when an item is unbookmarked.
         blogViewModel.getBookmarkedBlogs().observe(getViewLifecycleOwner(), blogs -> {
             binding.progressBarSave.setVisibility(View.GONE);
             if (blogs != null && !blogs.isEmpty()) {
@@ -81,7 +83,29 @@ public class ProfileFragment extends Fragment {
                 binding.saveBlogsRecyclerView.setVisibility(View.GONE);
             }
         });
+
+        // Also observe the master bookmark status list to keep the adapter's map updated
+        blogViewModel.getBookmarkStatusLiveData().observe(getViewLifecycleOwner(), statusMap -> {
+            if (statusMap != null) {
+                savedBlogsAdapter.updateBookmarkStatus(statusMap);
+            }
+        });
     }
+
+    /**
+     * This is the implementation of the interface method. It's called when a bookmark
+     * icon is clicked in the saved blogs list.
+     * @param blogId The ID of the blog to unbookmark.
+     */
+    @Override
+    public void onBookmarkClick(String blogId) {
+        // Tell the ViewModel to toggle the bookmark status.
+        // The LiveData observer will handle removing the item from the list automatically.
+        blogViewModel.toggleBookmark(blogId);
+        Toast.makeText(getContext(), "Bookmark removed", Toast.LENGTH_SHORT).show();
+    }
+
+    // --- Other methods for image picking, logout, etc. remain unchanged ---
 
     private void chooseImage() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
