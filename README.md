@@ -1,7 +1,8 @@
-# Skills_plus
+# Blogify
 
 ### Hi everyone,
-### I’ve made an app called Blogify using Android Studio, Firebase, Java, and XML by following mvvm architecture.
+#### I’ve made an app called Blogify using Android Studio, Firebase, Java, and XML by following mvvm architecture.
+
 ### With Blogify, users can:
 #### Sign up and create an account
 #### Post updates that show up on their page and in the community
