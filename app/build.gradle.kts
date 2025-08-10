@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.kotlin.android)
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -79,4 +80,19 @@ dependencies {
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment:2.8.2")
     implementation("androidx.navigation:navigation-ui:2.8.2")
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:2.57")
+    annotationProcessor("com.google.dagger:hilt-compiler:2.57")
+
+    // Hilt ViewModel (new package)
+    implementation("androidx.hilt:hilt-navigation-fragment:1.2.0") // replaces old alpha03
+    annotationProcessor("androidx.hilt:hilt-compiler:1.2.0")
+
+// Lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-runtime:2.8.4")
+
+
 }

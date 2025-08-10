@@ -9,20 +9,26 @@ import com.example.skills_plus.model.User;
 import com.example.skills_plus.repository.AuthRepository;
 import com.google.firebase.auth.FirebaseUser;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
 /**
  * ViewModel for authentication-related UI components (LoginActivity, RegisterActivity, ProfileFragment).
  * (Android Concept: ViewModel) It stores and manages UI-related data in a lifecycle-conscious way.
  * This ViewModel allows data to survive configuration changes such as screen rotations.
  */
+@HiltViewModel
 public class AuthViewModel extends AndroidViewModel {
 
     private final AuthRepository authRepository;
     private final LiveData<FirebaseUser> userLiveData;
     private final LiveData<User> userDetailsLiveData;
 
-    public AuthViewModel(@NonNull Application application) {
+    @Inject
+    public AuthViewModel(@NonNull Application application, AuthRepository authRepository) {
         super(application);
-        authRepository = new AuthRepository();
+        this.authRepository = authRepository;
         userLiveData = authRepository.getUserLiveData();
         userDetailsLiveData = authRepository.getUserDetailsLiveData();
     }

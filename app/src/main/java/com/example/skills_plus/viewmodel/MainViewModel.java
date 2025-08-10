@@ -6,6 +6,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
 /**
  * ViewModel for MainActivity.
  * (Android Concept: Shared ViewModel) This ViewModel is scoped to MainActivity and can be used by its
@@ -13,6 +15,7 @@ import androidx.lifecycle.MutableLiveData;
  * with each other, providing a more robust alternative to interface callbacks.
  * For now, it handles the currently selected navigation tab.
  */
+
 public class MainViewModel extends AndroidViewModel {
 
     // LiveData to hold the active fragment's navigation ID.

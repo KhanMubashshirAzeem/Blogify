@@ -19,6 +19,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Activity to display the full content of a single blog post.
  * (MVVM Concept: View) This is a simple view that displays data passed via an Intent.

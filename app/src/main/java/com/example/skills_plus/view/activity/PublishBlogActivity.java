@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.databinding.ActivityPublishBlogBinding;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Activity for creating and publishing a new blog post.
  * (MVVM Concept: View) Delegates all data operations to the BlogViewModel.

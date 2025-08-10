@@ -10,6 +10,8 @@ import com.example.skills_plus.repository.BlogRepository;
 import java.util.List;
 import java.util.Map;
 
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
 /**
  * ViewModel for blog-related UI components (WriteFragment, CommunityFragment, etc.).
  * Its responsibility is to prepare and manage blog data for the UI, surviving configuration

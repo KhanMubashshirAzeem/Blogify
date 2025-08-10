@@ -23,6 +23,8 @@ import com.example.skills_plus.viewmodel.AuthViewModel;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 // Implement the adapter's click listener interface
 public class ProfileFragment extends Fragment implements CommunityBlogAdapter.OnBookmarkClickListener {
 

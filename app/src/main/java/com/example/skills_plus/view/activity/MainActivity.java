@@ -13,6 +13,7 @@ import com.example.skills_plus.view.fragment.ProfileFragment;
 import com.example.skills_plus.view.fragment.WriteFragment;
 import com.example.skills_plus.viewmodel.MainViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import me.ibrahimsn.lib.OnItemSelectedListener;
 
 /**
@@ -20,6 +21,7 @@ import me.ibrahimsn.lib.OnItemSelectedListener;
  * (MVVM Concept: View) Its role is to manage the bottom navigation and swap fragments
  * based on state changes observed from the MainViewModel.
  */
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;

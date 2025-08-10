@@ -15,6 +15,8 @@ import com.example.skills_plus.view.activity.PublishBlogActivity;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 public class WriteFragment extends Fragment {
 
     private FragmentWriteBinding binding;

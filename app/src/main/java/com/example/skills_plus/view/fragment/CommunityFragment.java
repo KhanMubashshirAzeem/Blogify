@@ -16,6 +16,8 @@ import com.example.skills_plus.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 public class CommunityFragment extends Fragment implements CommunityBlogAdapter.OnBookmarkClickListener {
 
     private FragmentCommunityBinding binding;
