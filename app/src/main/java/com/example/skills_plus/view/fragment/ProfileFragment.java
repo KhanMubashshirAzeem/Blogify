@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import dagger.hilt.android.AndroidEntryPoint;
 
 // Implement the adapter's click listener interface
+@AndroidEntryPoint
 public class ProfileFragment extends Fragment implements CommunityBlogAdapter.OnBookmarkClickListener {
 
     private static final int SELECT_PICTURE = 200;

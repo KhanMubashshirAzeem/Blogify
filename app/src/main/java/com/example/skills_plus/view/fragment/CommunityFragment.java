@@ -18,6 +18,7 @@ import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class CommunityFragment extends Fragment implements CommunityBlogAdapter.OnBookmarkClickListener {
 
     private FragmentCommunityBinding binding;

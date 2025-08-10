@@ -21,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint;
  * (MVVM Concept: View) It retrieves blog details and delegates update/delete actions
  * to the BlogViewModel.
  */
+@AndroidEntryPoint
 public class UpdateDeleteActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;

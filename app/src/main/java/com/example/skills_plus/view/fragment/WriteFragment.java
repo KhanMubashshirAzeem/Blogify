@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class WriteFragment extends Fragment {
 
     private FragmentWriteBinding binding;

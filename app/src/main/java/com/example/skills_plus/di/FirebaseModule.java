@@ -25,14 +25,22 @@ public class FirebaseModule {
 
     @Provides
     @Singleton
-    public DatabaseReference provideDatabaseReference(){
+    @UserDbRef
+    public DatabaseReference provideUserDatabaseReference(){
         return FirebaseDatabase.getInstance().getReference("users");
     }
 
     @Provides
     @Singleton
+    @BlogDbRef
+    public DatabaseReference provideBlogsDatabaseReference(){
+        return FirebaseDatabase.getInstance().getReference("blogs");
+    }
+
+    @Provides
+    @Singleton
     public StorageReference provideStorageReference() {
-        return FirebaseStorage.getInstance().getReference();
+        return FirebaseStorage.getInstance().getReference("images");
     }
 
 }

@@ -4,6 +4,7 @@ import android.net.Uri;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.skills_plus.di.UserDbRef;
 import com.example.skills_plus.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -59,7 +60,7 @@ public class AuthRepository {
 
     @Inject
     public AuthRepository(FirebaseAuth firebaseAuth,
-                          DatabaseReference databaseReference,
+                          @UserDbRef DatabaseReference databaseReference,
                           StorageReference storageReference) {
         this.firebaseAuth = firebaseAuth;
         this.databaseReference = databaseReference;

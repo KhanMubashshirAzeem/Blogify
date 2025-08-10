@@ -27,6 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint;
  * It does not require a ViewModel because it doesn't fetch or manage its own data;
  * it only displays what it's given and performs a self-contained UI operation (PDF creation).
  */
+@AndroidEntryPoint
 public class ReadBlogActivity extends AppCompatActivity {
 
     private ActivityReadBlogBinding binding;

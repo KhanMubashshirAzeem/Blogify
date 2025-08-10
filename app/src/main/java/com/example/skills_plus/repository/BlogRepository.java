@@ -4,6 +4,10 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.skills_plus.di.BlogDbRef;
+import com.example.skills_plus.di.FirebaseModule;
+import com.example.skills_plus.di.UserDbRef;
 import com.example.skills_plus.model.Blog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +27,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * ==============================
  * BlogRepository
@@ -40,9 +47,9 @@ import java.util.UUID;
  * - MVVM (Repository Layer): This class represents the "Model" part of the architecture,
  * but it's more accurately the data layer that the ViewModel communicates with.
  */
+@Singleton
 public class BlogRepository {
 
-    private final DatabaseReference rootRef;
     private final DatabaseReference blogDatabaseReference;
     private final DatabaseReference usersDatabaseReference;
     private final StorageReference storageReference;
@@ -53,12 +60,15 @@ public class BlogRepository {
     private final MutableLiveData<List<Blog>> bookmarkedBlogsLiveData;
     private final MutableLiveData<Map<String, Boolean>> bookmarkStatusLiveData;
 
-    public BlogRepository() {
-        rootRef = FirebaseDatabase.getInstance().getReference();
-        blogDatabaseReference = rootRef.child("blogs");
-        usersDatabaseReference = rootRef.child("users");
-        storageReference = FirebaseStorage.getInstance().getReference("images");
-        firebaseAuth = FirebaseAuth.getInstance();
+    @Inject
+    public BlogRepository(FirebaseAuth firebaseAuth,
+                          @UserDbRef DatabaseReference usersDatabaseReference,
+                          @BlogDbRef DatabaseReference blogDatabaseReference,
+                          StorageReference storageReference) {
+        this.blogDatabaseReference = blogDatabaseReference;
+        this.usersDatabaseReference = usersDatabaseReference;
+        this.storageReference = storageReference;
+        this.firebaseAuth = firebaseAuth;
         allBlogsLiveData = new MutableLiveData<>();
         userBlogsLiveData = new MutableLiveData<>();
         bookmarkedBlogsLiveData = new MutableLiveData<>();

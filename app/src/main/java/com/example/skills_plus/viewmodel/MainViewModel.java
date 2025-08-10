@@ -6,6 +6,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import javax.inject.Inject;
+
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 /**
@@ -15,12 +17,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
  * with each other, providing a more robust alternative to interface callbacks.
  * For now, it handles the currently selected navigation tab.
  */
-
+@HiltViewModel
 public class MainViewModel extends AndroidViewModel {
 
     // LiveData to hold the active fragment's navigation ID.
     private final MutableLiveData<Integer> navigationTab = new MutableLiveData<>();
 
+    @Inject
     public MainViewModel(@NonNull Application application) {
         super(application);
         // Set the default tab when the ViewModel is created.
