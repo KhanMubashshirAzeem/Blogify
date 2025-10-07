@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.fragment;
+package com.example.skills_plus.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.skills_plus.adapter.BlogAdapter;
 import com.example.skills_plus.databinding.FragmentWriteBinding;
-import com.example.skills_plus.view.activity.PublishBlogActivity;
+import com.example.skills_plus.ui.activity.PublishBlogActivity;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 

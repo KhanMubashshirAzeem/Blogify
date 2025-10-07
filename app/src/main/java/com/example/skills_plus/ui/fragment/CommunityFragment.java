@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.fragment;
+package com.example.skills_plus.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
