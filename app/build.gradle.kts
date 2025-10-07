@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.skills_plus"
+    namespace = "com.mubashshir.blogify"
     compileSdk = 36 // Using latest stable compileSdk instead of 36 (unstable)
 
     defaultConfig {
-        applicationId = "com.example.skills_plus"
+        applicationId = "com.mubashshir.blogify"
         minSdk = 25
         targetSdk = 36 // Matching compileSdk stable version
         versionCode = 1

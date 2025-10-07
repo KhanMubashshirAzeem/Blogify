@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1086006816278",
+    "firebase_url": "https://skill-plus-a629e-default-rtdb.firebaseio.com",
     "project_id": "skill-plus-a629e",
     "storage_bucket": "skill-plus-a629e.appspot.com"
   },
@@ -9,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1086006816278:android:32a1fa91c4ec44fe38cf37",
         "android_client_info": {
-          "package_name": "com.example.skills_plus"
+          "package_name": "com.mubashshir.blogify"
         }
       },
       "oauth_client": [],

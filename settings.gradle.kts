@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Skills_plus"
+rootProject.name = "Blogify"
 include(":app")
