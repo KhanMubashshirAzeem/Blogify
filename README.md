@@ -11,6 +11,8 @@
 #### Change their profile picture
 #### Download Blog as a PDF.
 #### I’m really proud of this project and can’t wait to see how it grows!
+#### Migration to MVVM
+#### Hilt Implementation
 
 
 
