@@ -10,18 +10,24 @@ import com.example.skills_plus.repository.BlogRepository;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
 /**
  * ViewModel for blog-related UI components (WriteFragment, CommunityFragment, etc.).
  * Its responsibility is to prepare and manage blog data for the UI, surviving configuration
  * changes and connecting the View to the Repository.
  */
+@HiltViewModel
 public class BlogViewModel extends AndroidViewModel {
 
     private final BlogRepository blogRepository;
 
-    public BlogViewModel(@NonNull Application application) {
+    @Inject
+    public BlogViewModel(@NonNull Application application, BlogRepository blogRepository) {
         super(application);
-        blogRepository = new BlogRepository();
+        this.blogRepository = blogRepository;
     }
 
     // --- Blog List Getters ---

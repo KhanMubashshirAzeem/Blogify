@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.activity;
+package com.example.skills_plus.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.databinding.ActivityLoginBinding;
 import com.example.skills_plus.viewmodel.AuthViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Activity for user login.
  * (MVVM Concept: View) This class's responsibility is now limited to displaying the login form,
  * capturing user input, and delegating the login action to the AuthViewModel.
  */
+@AndroidEntryPoint
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;

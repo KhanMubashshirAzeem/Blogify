@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.activity;
+package com.example.skills_plus.ui.activity;
 
 import android.content.ContentValues;
 import android.graphics.Bitmap;
@@ -19,12 +19,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Activity to display the full content of a single blog post.
  * (MVVM Concept: View) This is a simple view that displays data passed via an Intent.
  * It does not require a ViewModel because it doesn't fetch or manage its own data;
  * it only displays what it's given and performs a self-contained UI operation (PDF creation).
  */
+@AndroidEntryPoint
 public class ReadBlogActivity extends AppCompatActivity {
 
     private ActivityReadBlogBinding binding;

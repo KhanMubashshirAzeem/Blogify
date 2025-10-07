@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.skills_plus.R;
 import com.example.skills_plus.model.Blog;
-import com.example.skills_plus.view.activity.ReadBlogActivity;
+import com.example.skills_plus.ui.activity.ReadBlogActivity;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.activity;
+package com.example.skills_plus.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +11,15 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.databinding.ActivityRegisterBinding;
 import com.example.skills_plus.viewmodel.AuthViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Activity for user registration.
  * (Android Concept: ViewBinding) Replaces findViewById to provide compile-time safe access to views.
  * (MVVM Concept: View) This class is now a "View" which is responsible for rendering UI and
  * delegating user actions to the ViewModel.
  */
+@AndroidEntryPoint
 public class RegisterActivity extends AppCompatActivity {
 
     private ActivityRegisterBinding binding;

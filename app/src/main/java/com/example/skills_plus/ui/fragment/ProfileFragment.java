@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.fragment;
+package com.example.skills_plus.ui.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,12 +18,15 @@ import com.bumptech.glide.Glide;
 import com.example.skills_plus.R;
 import com.example.skills_plus.adapter.CommunityBlogAdapter;
 import com.example.skills_plus.databinding.FragmentProfileBinding;
-import com.example.skills_plus.view.activity.LoginActivity;
+import com.example.skills_plus.ui.activity.LoginActivity;
 import com.example.skills_plus.viewmodel.AuthViewModel;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 // Implement the adapter's click listener interface
+@AndroidEntryPoint
 public class ProfileFragment extends Fragment implements CommunityBlogAdapter.OnBookmarkClickListener {
 
     private static final int SELECT_PICTURE = 200;

@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.activity;
+package com.example.skills_plus.ui.activity;
 
 
 import android.app.Activity;
@@ -14,11 +14,14 @@ import com.bumptech.glide.Glide;
 import com.example.skills_plus.databinding.ActivityUpdateDeleteBinding;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Activity for updating or deleting an existing blog post.
  * (MVVM Concept: View) It retrieves blog details and delegates update/delete actions
  * to the BlogViewModel.
  */
+@AndroidEntryPoint
 public class UpdateDeleteActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;

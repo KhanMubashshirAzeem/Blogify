@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.fragment;
+package com.example.skills_plus.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +16,9 @@ import com.example.skills_plus.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class CommunityFragment extends Fragment implements CommunityBlogAdapter.OnBookmarkClickListener {
 
     private FragmentCommunityBinding binding;

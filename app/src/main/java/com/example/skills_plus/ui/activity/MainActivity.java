@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.activity;
+package com.example.skills_plus.ui.activity;
 
 
 import android.os.Bundle;
@@ -8,11 +8,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.R;
 import com.example.skills_plus.databinding.ActivityMainBinding;
-import com.example.skills_plus.view.fragment.CommunityFragment;
-import com.example.skills_plus.view.fragment.ProfileFragment;
-import com.example.skills_plus.view.fragment.WriteFragment;
+import com.example.skills_plus.ui.fragment.CommunityFragment;
+import com.example.skills_plus.ui.fragment.ProfileFragment;
+import com.example.skills_plus.ui.fragment.WriteFragment;
 import com.example.skills_plus.viewmodel.MainViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import me.ibrahimsn.lib.OnItemSelectedListener;
 
 /**
@@ -20,6 +21,7 @@ import me.ibrahimsn.lib.OnItemSelectedListener;
  * (MVVM Concept: View) Its role is to manage the bottom navigation and swap fragments
  * based on state changes observed from the MainViewModel.
  */
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;

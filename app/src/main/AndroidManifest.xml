@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".di.SkillsPlusApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -19,7 +20,7 @@
         android:theme="@style/Theme.Skills_plus.Light"
         tools:targetApi="31">
         <activity
-            android:name=".view.activity.SplashScreenActivity"
+            android:name=".ui.activity.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,22 +28,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.UpdateDeleteActivity"
+            android:name=".ui.activity.UpdateDeleteActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.ReadBlogActivity"
+            android:name=".ui.activity.ReadBlogActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.PublishBlogActivity"
+            android:name=".ui.activity.PublishBlogActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.RegisterActivity"
+            android:name=".ui.activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="false" />
     </application>
 

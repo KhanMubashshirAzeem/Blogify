@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.activity;
+package com.example.skills_plus.ui.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,10 +10,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.databinding.ActivityPublishBlogBinding;
 import com.example.skills_plus.viewmodel.BlogViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * Activity for creating and publishing a new blog post.
  * (MVVM Concept: View) Delegates all data operations to the BlogViewModel.
  */
+@AndroidEntryPoint
 public class PublishBlogActivity extends AppCompatActivity {
 
     private static final int SELECT_PICTURE = 200;

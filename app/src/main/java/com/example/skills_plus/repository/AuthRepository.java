@@ -4,6 +4,7 @@ import android.net.Uri;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.skills_plus.di.UserDbRef;
 import com.example.skills_plus.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -13,6 +14,9 @@ import com.google.firebase.storage.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * ==============================
@@ -43,6 +47,7 @@ import java.util.UUID;
  *  - Repository is the "Model" layer that communicates with Firebase.
  *  - ViewModel calls repository methods to fetch/update data.
  */
+@Singleton
 public class AuthRepository {
 
     private final FirebaseAuth firebaseAuth;
@@ -53,10 +58,13 @@ public class AuthRepository {
     private final MutableLiveData<User> userDetailsLiveData;      // Holds custom User object details
     private final MutableLiveData<Boolean> isLogoutComplete;      // Tracks logout status
 
-    public AuthRepository() {
-        firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
-        storageReference = FirebaseStorage.getInstance().getReference();
+    @Inject
+    public AuthRepository(FirebaseAuth firebaseAuth,
+                          @UserDbRef DatabaseReference databaseReference,
+                          StorageReference storageReference) {
+        this.firebaseAuth = firebaseAuth;
+        this.databaseReference = databaseReference;
+        this.storageReference = storageReference;
 
         userLiveData = new MutableLiveData<>();
         userDetailsLiveData = new MutableLiveData<>();
@@ -66,6 +74,8 @@ public class AuthRepository {
         if (firebaseAuth.getCurrentUser() != null) {
             userLiveData.postValue(firebaseAuth.getCurrentUser());
             loadUserDetails();
+        }else{
+            userLiveData.postValue(firebaseAuth.getCurrentUser());
         }
     }
 

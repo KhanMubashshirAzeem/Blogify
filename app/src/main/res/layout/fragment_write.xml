@@ -4,7 +4,7 @@
     android:id="@+id/nestedContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.WriteFragment">
+    tools:context=".ui.fragment.WriteFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

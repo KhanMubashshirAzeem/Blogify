@@ -1,4 +1,4 @@
-package com.example.skills_plus.view.activity;
+package com.example.skills_plus.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,11 +10,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.R;
 import com.example.skills_plus.viewmodel.AuthViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
 /**
  * The initial splash screen of the application.
  * (Android Concept: Activity Lifecycle) This activity is the entry point of the app.
  * It now uses a ViewModel to check the user's authentication state.
  */
+@AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
