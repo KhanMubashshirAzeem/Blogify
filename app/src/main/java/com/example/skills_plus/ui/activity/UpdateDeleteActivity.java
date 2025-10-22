@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.Glide;
 import com.example.skills_plus.databinding.ActivityUpdateDeleteBinding;
-import com.example.skills_plus.viewmodel.BlogViewModel;
+import com.example.skills_plus.ui.viewmodel.BlogViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 

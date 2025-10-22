@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.skills_plus.R;
-import com.example.skills_plus.model.Blog;
+import com.example.skills_plus.data.model.Blog;
 import com.example.skills_plus.ui.activity.UpdateDeleteActivity;
 import java.util.List;
 

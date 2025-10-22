@@ -1,4 +1,4 @@
-package com.example.skills_plus.viewmodel;
+package com.example.skills_plus.ui.viewmodel;
 
 import android.app.Application;
 import androidx.annotation.NonNull;

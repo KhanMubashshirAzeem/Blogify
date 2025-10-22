@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.databinding.ActivityRegisterBinding;
-import com.example.skills_plus.viewmodel.AuthViewModel;
+import com.example.skills_plus.ui.viewmodel.AuthViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 

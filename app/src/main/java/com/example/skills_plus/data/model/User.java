@@ -1,4 +1,4 @@
-package com.example.skills_plus.model;
+package com.example.skills_plus.data.model;
 
 public class User {
     private String uid;

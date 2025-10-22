@@ -8,7 +8,7 @@ import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.R;
-import com.example.skills_plus.viewmodel.AuthViewModel;
+import com.example.skills_plus.ui.viewmodel.AuthViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 

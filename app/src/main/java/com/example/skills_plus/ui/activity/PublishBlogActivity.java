@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.skills_plus.databinding.ActivityPublishBlogBinding;
-import com.example.skills_plus.viewmodel.BlogViewModel;
+import com.example.skills_plus.ui.viewmodel.BlogViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 

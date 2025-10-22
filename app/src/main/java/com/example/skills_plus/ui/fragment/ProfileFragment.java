@@ -19,8 +19,8 @@ import com.example.skills_plus.R;
 import com.example.skills_plus.adapter.CommunityBlogAdapter;
 import com.example.skills_plus.databinding.FragmentProfileBinding;
 import com.example.skills_plus.ui.activity.LoginActivity;
-import com.example.skills_plus.viewmodel.AuthViewModel;
-import com.example.skills_plus.viewmodel.BlogViewModel;
+import com.example.skills_plus.ui.viewmodel.AuthViewModel;
+import com.example.skills_plus.ui.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 
 import dagger.hilt.android.AndroidEntryPoint;

@@ -1,4 +1,4 @@
-package com.example.skills_plus.repository;
+package com.example.skills_plus.data.repository;
 
 import android.net.Uri;
 import androidx.annotation.NonNull;
@@ -6,17 +6,14 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.skills_plus.di.BlogDbRef;
-import com.example.skills_plus.di.FirebaseModule;
 import com.example.skills_plus.di.UserDbRef;
-import com.example.skills_plus.model.Blog;
+import com.example.skills_plus.data.model.Blog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

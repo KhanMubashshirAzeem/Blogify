@@ -11,7 +11,7 @@ import com.example.skills_plus.databinding.ActivityMainBinding;
 import com.example.skills_plus.ui.fragment.CommunityFragment;
 import com.example.skills_plus.ui.fragment.ProfileFragment;
 import com.example.skills_plus.ui.fragment.WriteFragment;
-import com.example.skills_plus.viewmodel.MainViewModel;
+import com.example.skills_plus.ui.viewmodel.MainViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import me.ibrahimsn.lib.OnItemSelectedListener;

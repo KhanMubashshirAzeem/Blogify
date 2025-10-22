@@ -1,12 +1,12 @@
-package com.example.skills_plus.viewmodel;
+package com.example.skills_plus.ui.viewmodel;
 
 import android.app.Application;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import com.example.skills_plus.model.Blog;
-import com.example.skills_plus.repository.BlogRepository;
+import com.example.skills_plus.data.model.Blog;
+import com.example.skills_plus.data.repository.BlogRepository;
 import java.util.List;
 import java.util.Map;
 

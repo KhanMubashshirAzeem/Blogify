@@ -1,11 +1,11 @@
-package com.example.skills_plus.repository;
+package com.example.skills_plus.data.repository;
 
 import android.net.Uri;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.skills_plus.di.UserDbRef;
-import com.example.skills_plus.model.User;
+import com.example.skills_plus.data.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.*;

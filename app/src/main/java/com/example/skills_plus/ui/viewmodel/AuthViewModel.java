@@ -1,12 +1,12 @@
-package com.example.skills_plus.viewmodel;
+package com.example.skills_plus.ui.viewmodel;
 
 import android.app.Application;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import com.example.skills_plus.model.User;
-import com.example.skills_plus.repository.AuthRepository;
+import com.example.skills_plus.data.model.User;
+import com.example.skills_plus.data.repository.AuthRepository;
 import com.google.firebase.auth.FirebaseUser;
 
 import javax.inject.Inject;

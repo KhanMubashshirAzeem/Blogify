@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.skills_plus.adapter.CommunityBlogAdapter;
 import com.example.skills_plus.databinding.FragmentCommunityBinding;
-import com.example.skills_plus.model.Blog;
-import com.example.skills_plus.viewmodel.BlogViewModel;
+import com.example.skills_plus.data.model.Blog;
+import com.example.skills_plus.ui.viewmodel.BlogViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
