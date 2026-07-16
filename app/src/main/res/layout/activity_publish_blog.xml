@@ -5,12 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.activity.PublishBlogActivity">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/publishBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,95 +20,120 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16sp"
-            >
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/displayImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/imageUploadContainer"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="12dp"
-                android:minHeight="124dp"
-                android:scaleType="fitXY"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_max="320dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/offBlack2"
+                app:strokeWidth="1dp">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/uploadImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/img_bg"
-                android:padding="8dp"
-                android:text="Upload Image"
-                android:textColor="@color/offBlack2"
-                android:textSize="32sp"
-                android:visibility="visible"
-                app:drawableStartCompat="@drawable/add_icon"
-                app:drawableTint="@color/offBlack2"
-                app:layout_constraintBottom_toTopOf="@+id/addTitle"
-                app:layout_constraintEnd_toEndOf="@+id/displayImage"
-                app:layout_constraintStart_toStartOf="@+id/displayImage"
-                app:layout_constraintTop_toTopOf="@+id/displayImage" />
+                <ImageView
+                    android:id="@+id/displayImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/addTitle"
-                android:layout_width="match_parent"
+                <LinearLayout
+                    android:id="@+id/uploadPlaceholder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/add_icon"
+                        app:tint="@color/offBlack2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Upload Image"
+                        android:textColor="@color/offBlack2"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTitle"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:hint="Enter Title"
-                android:inputType="text"
-                android:maxLength="50"
-                android:maxLines="1"
-                android:textColor="@color/black"
-                android:textSize="18sp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/displayImage" />
+                app:layout_constraintTop_toBottomOf="@+id/imageUploadContainer">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/addDescription"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="start"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:maxLength="50"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDescription"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
                 android:hint="Enter Description"
-                android:textColor="@color/black"
-                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/tilTitle"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:minLines="6" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
-    </ScrollView>
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/publishBtn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:minHeight="32sp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/primaryColor"
+        android:layout_height="56dp"
+        android:layout_margin="16dp"
         android:text="Publish blog"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <ProgressBar
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progressBar"
-        android:layout_width="74dp"
-        android:layout_height="74dp"
-        android:progressTint="@color/primaryColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

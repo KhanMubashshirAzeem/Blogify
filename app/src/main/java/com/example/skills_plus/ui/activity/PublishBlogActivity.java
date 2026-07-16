@@ -36,7 +36,7 @@ public class PublishBlogActivity extends AppCompatActivity {
     }
 
     private void setupListeners() {
-        binding.uploadImage.setOnClickListener(v -> imageChooser());
+        binding.imageUploadContainer.setOnClickListener(v -> imageChooser());
         binding.publishBtn.setOnClickListener(v -> uploadData());
     }
 
@@ -53,7 +53,7 @@ public class PublishBlogActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == SELECT_PICTURE && data != null && data.getData() != null) {
             selectedImageUri = data.getData();
             binding.displayImage.setImageURI(selectedImageUri);
-            binding.uploadImage.setVisibility(View.INVISIBLE);
+            binding.imageUploadContainer.setVisibility(View.INVISIBLE);
         }
     }
 

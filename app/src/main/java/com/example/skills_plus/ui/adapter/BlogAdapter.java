@@ -1,4 +1,4 @@
-package com.example.skills_plus.adapter;
+package com.example.skills_plus.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;

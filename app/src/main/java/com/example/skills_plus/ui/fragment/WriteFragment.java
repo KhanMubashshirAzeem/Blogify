@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import com.example.skills_plus.adapter.BlogAdapter;
+import com.example.skills_plus.ui.adapter.BlogAdapter;
 import com.example.skills_plus.databinding.FragmentWriteBinding;
 import com.example.skills_plus.ui.activity.PublishBlogActivity;
 import com.example.skills_plus.viewmodel.BlogViewModel;

@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
 import com.example.skills_plus.R;
-import com.example.skills_plus.adapter.CommunityBlogAdapter;
+import com.example.skills_plus.ui.adapter.CommunityBlogAdapter;
 import com.example.skills_plus.databinding.FragmentProfileBinding;
 import com.example.skills_plus.ui.activity.LoginActivity;
 import com.example.skills_plus.viewmodel.AuthViewModel;
